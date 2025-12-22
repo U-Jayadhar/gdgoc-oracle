@@ -1,0 +1,159 @@
+/* --- CYBERPUNK THEME CSS --- */
+:root {
+  --neon-green: #0f0;
+  --dark-bg: #050a05;
+  --glass: rgba(0, 255, 0, 0.1);
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--neon-green);
+  font-family: "Share Tech Mono", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background-image: radial-gradient(circle, #0a1f0a 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 450px;
+  border: 2px solid var(--neon-green);
+  padding: 25px;
+  box-shadow: 0 0 20px var(--glass);
+  position: relative;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+h1 {
+  font-family: "Orbitron", sans-serif;
+  text-align: center;
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid var(--neon-green);
+  padding-bottom: 10px;
+}
+
+.logo {
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  background: black;
+  color: var(--neon-green);
+  border: 1px solid var(--neon-green);
+  padding: 10px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1rem;
+  box-sizing: border-box; /* Fixes padding issues */
+  margin-top: 5px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--neon-green);
+}
+
+button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px;
+  background: var(--neon-green);
+  color: black;
+  font-weight: bold;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: white;
+  box-shadow: 0 0 15px white;
+}
+
+button:disabled {
+  background: #333;
+  color: #666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Result Card Styles */
+#result-area {
+  display: none; /* Hidden by default */
+  margin-top: 30px;
+  border-top: 1px dashed var(--neon-green);
+  padding-top: 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.roast-box {
+  border-left: 4px solid #ff4444;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: rgba(255, 0, 0, 0.05);
+}
+
+.suggestion-box {
+  border-left: 4px solid #ffd166;
+  padding: 10px;
+  margin-bottom: 15px;
+  background: rgba(255, 209, 102, 0.08);
+}
+
+.fortune-box {
+  border-left: 4px solid #00ffff;
+  padding: 10px;
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.section-title {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading Animation */
+.loader {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--neon-green);
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

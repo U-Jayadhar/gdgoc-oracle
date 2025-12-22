@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GDGoC Oracle | 2026 Prediction</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>The GDGoC Oracle 2026</h1>
+      <div class="logo">&lt; GDGoC_GITAM /&gt; Powered by Gemini</div>
+
+      <div id="input-form">
+        <label for="name">CODENAME (NAME)</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="e.g. Sai"
+          autocomplete="off"
+        />
+
+        <label for="branch">DEPARTMENT</label>
+        <input
+          type="text"
+          id="branch"
+          placeholder="e.g. CSE / ECE"
+          autocomplete="off"
+        />
+
+        <label for="stat">SELECT YOUR STAT</label>
+        <select id="stat">
+          <option value="90% Attendance">
+            🤓 90% Attendance (Teacher's Pet)
+          </option>
+          <option value="Placement Seeker">🎯 Focused on Placements</option>
+          <option value="Startup Dreamer">🚀 Aspiring Entrepreneur</option>
+          <option value="2+ Backlogs">💀 I have 2+ Backlogs</option>
+          <option value="Sleeps in Class">
+            😴 Last Bench CEO (Sleeps in class)
+          </option>
+
+          <option value="ChatGPT User">🤖 Degree sponsored by ChatGPT</option>
+          <option value="Coding God">💻 I code on Weekends (No Life)</option>
+          <option value="Linux User">🐧 I use Arch Linux btw</option>
+
+          <option value="Maggi Addict">🍜 My blood group is Beach Maggi</option>
+          <option value="Coffee Addict">☕ Living at Cafe</option>
+          <option value="Biryani Lover">
+            🍗 Biryani is my only motivation
+          </option>
+          <option value="Campus Celebrity">🌟 GITAM Campus Celebrity</option>
+          <option value="Swag King">😎 Swag Level: Off the Charts</option>
+           
+
+          <option value="Instagram Addict">
+            📸 Screen time > 8 hours (Reel Addict)
+          </option>
+          <option value="Relationship Issues">💔 Breakup / Complicated</option>
+          <option value="Forever Single">
+            🥀 Forever Single (Engineering Quota)
+          </option>
+          <option value="Broke Student">💸 Bank Balance: ₹42</option>
+
+          <option value="Roaming Rider">
+            🏍️ Rushikonda Rider (Skipping classes)
+          </option>
+          <option value="Proxy King">✋ Professional Proxy Giver</option>
+          
+          <!-- that one smarrt thinking person to handle over confident ones like none, no intersted stat option -->
+          <option value="None">🤔 Just Here for Fun (No specific stat)</option>
+        </select>
+
+        <button id="predict-btn" onclick="generatePrediction()">
+          Initialize Scan
+        </button>
+      </div>
+
+      <div id="result-area">
+        <div class="roast-box">
+          <div class="section-title">/// SYSTEM ROAST ///</div>
+          <div id="roast-text">Analyzing...</div>
+        </div>
+
+        <div class="suggestion-box">
+          <div class="section-title">/// FIELD OPS SUGGESTION ///</div>
+          <div id="suggestion-text">Calibrating...</div>
+        </div>
+
+        <div class="fortune-box">
+          <div class="section-title">/// 2026 PREDICTION ///</div>
+          <div id="fortune-text">Calculating...</div>
+        </div>
+
+        <button
+          onclick="location.reload()"
+          style="
+            margin-top: 10px;
+            background: transparent;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            font-size: 0.8rem;
+          "
+        >
+          Scan Next Subject
+        </button>
+      </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
