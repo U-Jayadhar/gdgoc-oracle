@@ -8,7 +8,7 @@
 
 This web application was built for the **GDGoC (Google Developer Group on Campus) Vizag** Christmas Event. It interacts with students, takes their branch/habits as input, and uses **Google Gemini Flash Latest** to generate a witty "Roast" and a "2026 Prediction" printed on a digital thermal receipt.
 
-🔗 **Live Demo:** [https://gdgoc-oracle.ujayadhar.dev](https://gdgoc-oracle.ujayadhar.dev)
+🔗 **Live Demo:** <a href="https://gdgoc-oracle.ujayadhar.dev" target="_blank">gdgoc-oracle.ujayadhar.dev</a>
 
 ---
 
