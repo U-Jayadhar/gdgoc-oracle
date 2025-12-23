@@ -217,3 +217,53 @@ button:disabled {
     font-size: 0.95rem;
   }
 }
+
+/* --- THERMAL RECEIPT STYLES (HIDDEN FROM VIEW) --- */
+#thermal-receipt {
+  /* Position fixed off-screen so user doesn't see it, but html2canvas can capture it */
+  position: fixed;
+  top: -9999px;
+  left: 0;
+
+  /* Strict Printer Width */
+  width: 370px;
+
+  /* Printer Friendly Styles */
+  background: white;
+  color: black;
+  font-family: "Courier Prime", "Courier New", monospace;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1.4;
+  border: 1px solid black; /* Just for debugging if needed */
+}
+
+.receipt-header,
+.receipt-footer {
+  text-align: center;
+  font-weight: bold;
+}
+
+.receipt-divider {
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.receipt-label {
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 5px;
+}
+
+.receipt-content {
+  margin-bottom: 5px;
+  text-align: justify;
+}

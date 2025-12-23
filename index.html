@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GDGoC Oracle | 2026 Prediction</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&family=Courier+Prime:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -41,11 +43,9 @@
         <input
           type="text"
           id="year"
-          placeholder="e.g. 1st / 2nd / 3rd / 4th"
+          placeholder="e.g. 4th Year"
           autocomplete="off"
         />
-
-        <!-- gender dropdown select male/female/other/wish to not specify -->
 
         <label for="gender">GENDER</label>
         <select id="gender">
@@ -63,14 +63,10 @@
           <option value="Placement Seeker">🎯 Focused on Placements</option>
           <option value="Startup Dreamer">🚀 Aspiring Entrepreneur</option>
           <option value="2+ Backlogs">💀 I have 2+ Backlogs</option>
-          <option value="Sleeps in Class">
-            😴 Last Bench CEO (Sleeps in class)
-          </option>
-
+          <option value="Sleeps in Class">😴 Last Bench CEO</option>
           <option value="ChatGPT User">🤖 Degree sponsored by ChatGPT</option>
-          <option value="Coding God">💻 I code on Weekends (No Life)</option>
+          <option value="Coding God">💻 I code on Weekends</option>
           <option value="Linux User">🐧 I use Arch Linux btw</option>
-
           <option value="Maggi Addict">🍜 My blood group is Beach Maggi</option>
           <option value="Coffee Addict">☕ Living at Cafe</option>
           <option value="Biryani Lover">
@@ -78,22 +74,13 @@
           </option>
           <option value="Campus Celebrity">🌟 GITAM Campus Celebrity</option>
           <option value="Swag King">😎 Swag Level: Off the Charts</option>
-
-          <option value="Instagram Addict">
-            📸 Screen time > 8 hours (Reel Addict)
-          </option>
+          <option value="Instagram Addict">📸 Screen time > 8 hours</option>
           <option value="Relationship Issues">💔 Breakup / Complicated</option>
-          <option value="Forever Single">
-            🥀 Forever Single (Engineering Quota)
-          </option>
+          <option value="Forever Single">🥀 Forever Single</option>
           <option value="Broke Student">💸 Bank Balance: ₹42</option>
-
-          <option value="Roaming Rider">
-            🏍️ Rushikonda Rider (Skipping classes)
-          </option>
+          <option value="Roaming Rider">🏍️ Rushikonda Rider</option>
           <option value="Proxy King">✋ Professional Proxy Giver</option>
-
-          <option value="None">🤔 Just Here for Fun (No specific stat)</option>
+          <option value="None">🤔 Just Here for Fun</option>
         </select>
 
         <button id="predict-btn" onclick="generatePrediction()">
@@ -117,18 +104,59 @@
           <div id="fortune-text">Calculating...</div>
         </div>
 
-        <button
-          onclick="location.reload()"
-          style="
-            margin-top: 10px;
-            background: transparent;
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
-            font-size: 0.8rem;
-          "
-        >
-          Scan Next Subject
-        </button>
+        <div style="display: flex; gap: 10px; margin-top: 20px">
+          <button
+            onclick="downloadReceipt()"
+            style="background: white; color: black; border: 1px solid white"
+          >
+            💾 Save Receipt Image
+          </button>
+          <button
+            onclick="location.reload()"
+            style="
+              background: transparent;
+              border: 1px solid var(--neon-green);
+              color: var(--neon-green);
+            "
+          >
+            🔄 Scan Next
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="thermal-receipt">
+      <div class="receipt-header">
+        --- GDGoC VIZAG ---<br />
+        ORACLE SYSTEM V2.5
+      </div>
+      <div class="receipt-divider">------------------------</div>
+
+      <div class="receipt-row">
+        <strong>USER:</strong> <span id="r-name">...</span>
+      </div>
+      <div class="receipt-row">
+        <strong>DEPT:</strong> <span id="r-dept">...</span>
+      </div>
+      <div class="receipt-row">
+        <strong>YEAR:</strong> <span id="r-year">...</span>
+      </div>
+      <div class="receipt-divider">------------------------</div>
+
+      <div class="receipt-label">SYSTEM ROAST:</div>
+      <div id="r-roast" class="receipt-content">...</div>
+      <br />
+      <div class="receipt-label">SUGGESTION:</div>
+      <div id="r-suggestion" class="receipt-content">...</div>
+      <br />
+      <div class="receipt-label">2026 PREDICTION:</div>
+      <div id="r-fortune" class="receipt-content">...</div>
+
+      <div class="receipt-divider">------------------------</div>
+      <div class="receipt-footer">
+        MERRY TECH-MAS!<br />
+        Generated by Gemini AI<br />
+        @GDGoC_GITAM
       </div>
     </div>
 
