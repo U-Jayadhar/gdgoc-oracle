@@ -53,8 +53,8 @@ TASK: Return a receipt-style prediction. Keep each field concise.
 
 STRICT OUTPUT: Return ONLY valid JSON (no markdown, no code fences) exactly in this shape:
 {
-  "error_log": "Fake error code roasting their weakness",
-  "suggestion": "Funny actionable tip that references a local spot",
+  "error_log": "Fake error code roasting heavily their weakness in a sentence",
+  "suggestion": "Funny and roast-heavy actionable tip that references a local spot",
   "prediction": "One-sentence prediction for Dec 2026"
 }
 
