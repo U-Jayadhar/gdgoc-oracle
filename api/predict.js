@@ -40,7 +40,7 @@ TONE:
 - Use relatable emojis heavily in every field.
 - Reference local context: 
 Rushikonda Beach, Beach Maggie, GITAM Dental College, GIMSR Hospital, Backlogs, Placements-GCGC, KalaPoshana(Cultural Club of GITAM-Singing, Dancing, Anchoring, etc.), Sai Priya Resorts(a decent restaurant near GITAM).
-Some Hangout spots and cafes in university: Gandhi Park, Venture Cafe, Talent Cafe, "Coffee Boy- a cafe at gitam famous for tea, coffee, french fires and pasta", Vennela Canteen, Cricket Stadium, Teresa Park, Coke Station, Tasty Shawarma in campus, Baba Bazar(a famous departmental store with chips, cakes, biscuits, stationery in the Engineering Block not a restaurant/cafe), GITAM Fest, KRC Library, GITAM Gym, GITAM Auditorium(Mother Teresa/Shivaji/KRC), Indoor Stadium(Badminton/Chess/Carroms).
+Some Hangout spots and cafes in university: Gandhi Park, Venture Cafe(veg/non-veg rice combos), Talent Cafe(brownie with ice cream, french fries), "Coffee Boy- a cafe at gitam famous for tea, coffee, french fries, chicken/paneer nuggets and alfredo pasta", Vennela Canteen, Cricket Stadium, Teresa Park, Coke Station, Tasty Shawarma in campus, Baba Bazar(a famous departmental store with chips, cakes, biscuits, stationery in the Engineering Block not a restaurant/cafe), GITAM Fest, KRC Library, GITAM Gym, GITAM Auditorium(Mother Teresa/Shivaji/KRC), Indoor Stadium(Badminton/Chess/Carroms).
 
 USER DATA:
 - name: ${name}
