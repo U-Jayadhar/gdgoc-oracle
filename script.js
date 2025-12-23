@@ -1,6 +1,8 @@
 window.generatePrediction = async function () {
   const name = document.getElementById("name").value.trim();
   const branch = document.getElementById("branch").value.trim();
+  const year = document.getElementById("year").value.trim();
+  const gender = document.getElementById("gender").value;
   const stat = document.getElementById("stat").value;
   const btn = document.getElementById("predict-btn");
   const resultArea = document.getElementById("result-area");
@@ -20,7 +22,7 @@ window.generatePrediction = async function () {
       // Relative path is correct for Vercel
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, branch, stat }),
+      body: JSON.stringify({ name, branch, year, gender, stat }),
     });
 
     if (!response.ok) {

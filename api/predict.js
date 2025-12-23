@@ -22,7 +22,7 @@ export default async function handler(req, res) {
 
   try {
     // 4. Input Parsing
-    const { name, branch, stat } = req.body;
+    const { name, branch, year, gender, stat } = req.body;
 
     // 5. Initialize Gemini
     const genAI = new GoogleGenerativeAI(apiKey);
@@ -45,6 +45,8 @@ Some Hangout spots and cafes in university: Gandhi Park, Venture Cafe, Talent Ca
 USER DATA:
 - name: ${name}
 - branch: ${branch}
+- year: ${year}
+- gender: ${gender}
 - stat: ${stat}
 
 TASK: Return a receipt-style prediction. Keep each field concise (max ~200 chars).
