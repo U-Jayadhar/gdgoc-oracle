@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     // 5. Initialize Gemini
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
-      model: "gemini-flash-latest",
+      model: "gemini-2.5-flash-lite",
       // This config requires SDK version > 0.12.0
       generationConfig: { responseMimeType: "application/json" },
     });
