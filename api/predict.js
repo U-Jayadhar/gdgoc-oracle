@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     // 5. Initialize Gemini
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
-      model: "gemini-2.5-flash-lite",
+      model: "gemini-3-flash-preview",
       // This config requires SDK version > 0.12.0
       generationConfig: { responseMimeType: "application/json" },
     });
@@ -49,7 +49,7 @@ USER DATA:
 - gender: ${gender}
 - stat: ${stat}
 
-TASK: Return a receipt-style prediction. Keep each field concise (max ~200 chars).
+TASK: Return a receipt-style prediction. Keep each field concise.
 
 STRICT OUTPUT: Return ONLY valid JSON (no markdown, no code fences) exactly in this shape:
 {
