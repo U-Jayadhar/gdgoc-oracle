@@ -116,7 +116,7 @@ window.downloadReceipt = function () {
   // Use html2canvas to capture the hidden div
   // We force scale: 1 to respect the 370px width limit
   html2canvas(receiptElement, {
-    scale: 2, // higher scale for better clarity
+    scale: 3, // higher scale for better clarity
     backgroundColor: "#ffffff",
     logging: false,
     useCORS: true,
@@ -124,7 +124,14 @@ window.downloadReceipt = function () {
     .then((canvas) => {
       // Create download link
       const link = document.createElement("a");
-      link.download = `ORACLE_${Date.now()}.png`;
+      const name = document.getElementById("name").value.trim();
+      //   date in filename as YYYY-MM-DD-HHMMSS
+      const now = new Date();
+      const formattedDate = now
+        .toISOString()
+        .slice(0, 19)
+        .replace(/[:T]/g, "-");
+      link.download = `ORACLE_${name}_${formattedDate}.png`;
       link.href = canvas.toDataURL("image/png");
       link.click();
     })
