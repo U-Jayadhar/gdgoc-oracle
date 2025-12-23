@@ -1,24 +1,23 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export default async function handler(req, res) {
-  // 1. Allow only POST requests
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  // 2. Securely get the Key from Vercel Environment Variables
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    return res
-      .status(500)
-      .json({
-        error: "Server Error: API Key missing in Environment Variables",
-      });
+  // SAFETY FIX: Ensure body is an object
+  let body = req.body;
+  if (typeof body === "string") {
+    try {
+      body = JSON.parse(body);
+    } catch (e) {
+      return res.status(400).json({ error: "Invalid JSON body" });
+    }
   }
 
   try {
     // 3. Get User Data from Frontend
-    const { name, branch, stat } = req.body;
+    const { name, branch, stat } = body;
 
     // 4. Initialize Gemini (Backend side)
     const genAI = new GoogleGenerativeAI(apiKey);
