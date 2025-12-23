@@ -16,17 +16,16 @@ window.generatePrediction = async function () {
   btn.innerHTML = `Decrypting Future <span class="loader"></span>`;
 
   try {
-    // CALL THE VERCEL BACKEND API
     const response = await fetch("/api/predict", {
+      // Relative path is correct for Vercel
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, branch, stat }),
     });
 
     if (!response.ok) {
-      throw new Error(`Server error: ${response.status}`);
+      const errData = await response.json();
+      throw new Error(errData.error || "Server Error");
     }
 
     const data = await response.json();

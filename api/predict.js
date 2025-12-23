@@ -1,29 +1,37 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export default async function handler(req, res) {
+  // 1. CORS Headers (Optional but good for safety)
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
+  // 2. Allow only POST
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
 
-  // SAFETY FIX: Ensure body is an object
-  let body = req.body;
-  if (typeof body === "string") {
-    try {
-      body = JSON.parse(body);
-    } catch (e) {
-      return res.status(400).json({ error: "Invalid JSON body" });
-    }
+  // 3. API Key Check
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.error(
+      "CRITICAL: GEMINI_API_KEY is missing in Vercel Env Variables."
+    );
+    return res
+      .status(500)
+      .json({ error: "Server Config Error: API Key missing" });
   }
 
   try {
-    // 3. Get User Data from Frontend
-    const { name, branch, stat } = body;
+    // 4. Input Parsing
+    const { name, branch, stat } = req.body;
 
-    // 4. Initialize Gemini (Backend side)
+    // 5. Initialize Gemini
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-flash-latest" });
+    const model = genAI.getGenerativeModel({
+      model: "gemini-flash-latest",
+      // This config requires SDK version > 0.12.0
+      generationConfig: { responseMimeType: "application/json" },
+    });
 
-    // 5. THE PROMPT (Pasted exactly as requested)
     const prompt = `
 SYSTEM: You are "The GITAM Oracle," a witty, sarcastic AI from 2026 speaking to students at GITAM University Vizag.
 TONE:
@@ -50,21 +58,19 @@ STRICT OUTPUT: Return ONLY valid JSON (no markdown, no code fences) exactly in t
 
 RULES: Do not add extra keys. Do not wrap in quotes outside the JSON. Do not explain.`;
 
-    // 6. Generate Content
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const text = response.text();
 
-    // 7. Clean JSON
+    // 6. Parse JSON safely
     const cleanedText = text.replace(/```json|```/g, "").trim();
-    const jsonMatch = cleanedText.match(/\{[\s\S]*\}/);
-    const jsonString = jsonMatch ? jsonMatch[0] : cleanedText;
-    const data = JSON.parse(jsonString);
+    const data = JSON.parse(cleanedText);
 
-    // 8. Send back to Frontend
-    res.status(200).json(data);
+    return res.status(200).json(data);
   } catch (error) {
-    console.error("Gemini API Error:", error);
-    res.status(500).json({ error: "Failed to generate prediction" });
+    console.error("Backend Error Details:", error); // This shows in Vercel Logs
+    return res
+      .status(500)
+      .json({ error: error.message || "Internal Server Error" });
   }
 }
