@@ -1,0 +1,7 @@
+{
+  "name": "gdgoc-oracle",
+  "version": "1.0.0",
+  "dependencies": {
+    "@google/generative-ai": "^0.1.0"
+  }
+}
